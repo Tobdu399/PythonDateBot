@@ -41,7 +41,7 @@ def main():
         os.system("clear")
         print(yellow + "- Python Date Bot -\n" + reset)
 
-        if message_sent == False:
+        if checkIfNextDay() == False and message_sent == False:
             print(green + "running..." + reset)
 
             try:
