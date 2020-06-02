@@ -15,11 +15,14 @@ red = "\u001b[31;1m"
 reset = "\u001b[0m"
 name = "Häkkerit22"
 
+message_sent = False
+
 def checkIfNextDay():
     global current_time
 
     current_time = datetime.now()
     if current_time.hour == 0 and current_time.minute == 0 and current_time.second == 0:
+        message_sent = False
         return True
     else:
         return False
@@ -38,8 +41,6 @@ def getDetails():
 
 
 def main():
-    message_sent = False
-
     while True:
         os.system("clear")
         print(yellow + "- Python Date Bot -\n" + reset)
