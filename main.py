@@ -19,7 +19,10 @@ def checkIfNextDay():
     global current_time
 
     current_time = datetime.now()
-    current_time.hour == 0 and current_time.minute == 0 and current_time.second == 0 and current_time.microsecond == 0
+    if current_time.hour == 0 and current_time.minute == 0 and current_time.second == 0:
+        return True
+    else:
+        return False
 
 def getDetails():
     time_format = "%d.%m.%Y"
@@ -41,7 +44,7 @@ def main():
         os.system("clear")
         print(yellow + "- Python Date Bot -\n" + reset)
 
-        if checkIfNextDay() == False and message_sent == False:
+        if checkIfNextDay() == True and message_sent == False:
             print(green + "running..." + reset)
 
             try:
@@ -67,7 +70,7 @@ def main():
                 input_box.send_keys(Keys.RETURN)
                 time.sleep(1)
                 browser.quit()
-                
+
                 message_sent = True
                 print("\nMessage succesfully sent!\n")
 
@@ -83,6 +86,6 @@ def main():
 
             print("Be ready to scan the Whatsapp Web's QR code\nas soon as the website opens!\n")
             time.sleep(0.1)
-    
+
 
 main()
