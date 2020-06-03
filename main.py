@@ -15,14 +15,11 @@ red = "\u001b[31;1m"
 reset = "\u001b[0m"
 name = "Häkkerit22"
 
-message_sent = False
-
 def checkIfNextDay():
     global current_time
 
     current_time = datetime.now()
     if current_time.hour == 0 and current_time.minute == 0 and current_time.second == 0:
-        message_sent = False
         return True
     else:
         return False
@@ -45,7 +42,7 @@ def main():
         os.system("clear")
         print(yellow + "- Python Date Bot -\n" + reset)
 
-        if checkIfNextDay() == True and message_sent == False:
+        if checkIfNextDay() == True:
             print(green + "running..." + reset)
 
             try:
@@ -72,7 +69,6 @@ def main():
                 time.sleep(1)
                 browser.quit()
 
-                message_sent = True
                 print("\nMessage succesfully sent!\n")
 
             except(selenium.common.exceptions.NoSuchElementException):
@@ -86,7 +82,7 @@ def main():
             print(green + current_time.strftime("%H:%M:%S\n") + reset)
 
             print("Be ready to scan the Whatsapp Web's QR code\nas soon as the website opens!\n")
-            time.sleep(0.1)
+            time.sleep(1)
 
 
 main()
